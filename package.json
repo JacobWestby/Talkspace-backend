@@ -1,0 +1,20 @@
+{
+  "name": "talkspace-backend",
+  "version": "1.0.0",
+  "description": "<h1>WORK IN PROGRESS!</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobWestby/Talkspace-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobWestby/Talkspace-backend/issues"
+  },
+  "homepage": "https://github.com/JacobWestby/Talkspace-backend#readme"
+}
