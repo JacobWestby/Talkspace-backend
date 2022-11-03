@@ -1,9 +1,11 @@
 {
   "name": "talkspace-backend",
   "version": "1.0.0",
-  "description": "<h1>WORK IN PROGRESS!</h1>",
-  "main": "index.js",
+  "description": "Chatroom app",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,10 +13,14 @@
     "url": "git+https://github.com/JacobWestby/Talkspace-backend.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jacob Westby",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JacobWestby/Talkspace-backend/issues"
   },
-  "homepage": "https://github.com/JacobWestby/Talkspace-backend#readme"
+  "homepage": "https://github.com/JacobWestby/Talkspace-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
 }
