@@ -5,19 +5,25 @@ import { ObjectId } from 'mongodb';
 import cors from 'cors';
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const httpServer = createServer(app);
 
-
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../build')));
+
 
 // * Connect socketIO
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: "http://localhost:8000"
     }
 });
 
@@ -29,12 +35,20 @@ io.on('connection', (socket) => {
         try {
             if (change.operationType === 'update') {
                 socket.emit('messageResponse', Object.values(change.updateDescription.updatedFields)[0]);
+            } else if (change.operationType === 'insert') {
+                socket.emit('roomCreation', change.fullDocument);
             }
         } catch (error) {
             console.log(error);
         }
     })
 });
+
+// * When not fetching from API
+
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 // * Get all rooms
 
