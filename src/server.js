@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../build')));
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:8000"
+        origin: "https://talkspace-372421.ew.r.appspot.com/"
     }
 });
 
